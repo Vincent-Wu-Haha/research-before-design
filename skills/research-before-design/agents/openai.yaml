@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research Before Design"
+  short_description: "Research alternatives and recommend feasible designs"
+  default_prompt: "使用 $research-before-design，先调研主流、近期、开源及相关论文路线，再比较适配性、工作量和落地成本，推荐可实施的方案。"
+policy:
+  allow_implicit_invocation: true

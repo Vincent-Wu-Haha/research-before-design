@@ -1,2 +1,69 @@
-# research-before-design
-A research-first skill for complex solution design: discover mainstream, emerging, open-source, and academic approaches; compare trade-offs and recommend practical implementation plans.
+# Research Before Design
+
+**先调研，再比较，最后给出能落地的方案。**
+
+一个面向复杂方案设计的 Agent Skill。适合尚未选定路线的架构、技术选型、系统集成，以及有重要取舍的产品和业务方案。第一版为 `v0.1.0`。
+
+它要求 Agent 先搜索并阅读主流方案、近期进展、开源实现及相关论文，再结合用户约束逐一比较，提出主体方案、可借鉴的优点、工作量和落地步骤。不会把最新、最多 Star 或最多组件直接当作最好。
+
+## 这个 Skill 改变什么
+
+- **先取证再推荐**：可以先拆解问题，但不能先凭记忆定方案，再搜链接佐证。
+- **比较真实替代路线**：包括成熟、近期、开源，以及适用时的学术路线；保留更简单或沿用现状的选项。
+- **让依据可追溯**：读取原始资料，核实版本、维护状态与许可，区分事实、推断和假设，主动找反证。
+- **有选择地借鉴**：选一个主体方案，每个额外组件都需要收益、边界和成本依据。
+- **把推荐变成行动**：最小版本、阶段、工作量区间及前提、持续成本、验收和回退方式。
+- **控制调研成本**：按决策风险调整深度；有停止条件，不为凑来源数量无限搜索。
+
+简单修改和已确定方案的执行不触发完整调研。用户已选路线时，只研究未解决问题，不擅自推翻既定选择。
+
+## 安装到 Codex
+
+本仓库不需要运行服务器、安装 Python 依赖或配置新的 API Key。完整在线调研需要运行环境已有可用的搜索与页面读取能力；GitHub、论文工具按题目需要使用。
+
+```bash
+git clone https://github.com/Vincent-Wu-Haha/research-before-design.git
+cd research-before-design
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+```
+
+确认目标目录下没有同名 Skill，再复制整个文件夹，保留 references 和 agents：
+
+```bash
+cp -R skills/research-before-design "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
+
+在新聊天中调用。其他兼容 Agent Skills 格式的环境可按其安装机制使用；本版包含 Codex 的界面元数据，未逐一验证其他宿主。
+
+## 使用
+
+```text
+使用 $research-before-design，设计一个多来源数据同步方案。
+当前没有选定路线，团队两人，四周做出第一版。
+先调研主流、近期、开源方案和相关论文，再比较适配性、
+开发/运维成本，推荐主体方案及可借鉴部分，给出分阶段落地计划。
+```
+
+也可直接描述复杂选型任务，让宿主自动匹配；自动匹配受宿主与模型影响，需要明确指定时使用 `$research-before-design`。
+
+交付结构：推荐与成立条件 → 目标和约束 → 候选比较 → 综合设计 → 落地与验证 → 来源和缺口。
+
+## 文件
+
+- [Skill 入口](skills/research-before-design/SKILL.md)
+- [调研与比较方法](skills/research-before-design/references/research-method.md)
+- [交付结构](skills/research-before-design/references/report-contract.md)
+- [调研来源、路线比较与设计取舍](docs/research-and-design.md)
+- [实际联网使用示例](examples/skill-vs-research-runtime.md)
+- [评估场景与验收标准](evals/scenarios.md)
+- [第一版验证记录](evals/results-v0.1.md)
+
+## 能力边界
+
+Skill 是工作指令，不是搜索引擎或程序级拦截器，也不自动提供工具、账号或授权。没有联网能力时，只能整理约束、已有材料和待验证假设，不能声称完成最新调研。推荐的质量仍取决于可访问资料与实际验证。
+
+本项目第一版不打包 MCP 服务、不实现爬虫、不自动运行候选项目。需要统一工具、托管研究资料或团队分发时，可以继续封装为 Plugin，复用此 Skill。
+
+## License
+
+[MIT](LICENSE)。本仓库的工作流为独立编写；外部项目和论文仅作为设计参考，未复制其实现或 Skill 正文，其内容保留各自许可。

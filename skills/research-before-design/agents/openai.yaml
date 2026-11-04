@@ -1,6 +1,6 @@
 interface:
   display_name: "Research Before Design"
   short_description: "Research alternatives and recommend feasible designs"
-  default_prompt: "使用 $research-before-design，先建立当前机制与能力基线，按关键环节调研成熟方法、近期进展、开源实现和论文，核对指标可比性，再比较能力增益、适配性与落地成本，推荐可实施的方案。"
+  default_prompt: "使用 $research-before-design，先判断本次是方法研究、方案选型还是改造设计，建立现状与决定性问题；广查机制后深查最强可行路线，用证据和反证推进判断，按任务范围交付并说明剩余缺口。"
 policy:
   allow_implicit_invocation: true

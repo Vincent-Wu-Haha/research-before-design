@@ -1,6 +1,6 @@
 interface:
   display_name: "Research Before Design"
-  short_description: "Research alternatives and recommend feasible designs"
-  default_prompt: "使用 $research-before-design，先判断本次是方法研究、方案选型还是改造设计，建立现状与决定性问题；广查机制后深查最强可行路线，用证据和反证推进判断，按任务范围交付并说明剩余缺口。"
+  short_description: "Search live sources and compare mainstream solutions"
+  default_prompt: "使用 $research-before-design，先识别任务与约束，实际联网发现主流方案、读取原始资料并比较真实替代，再给推荐或设计；附检索范围、来源与缺口，无法联网时明确标记调研未完成。"
 policy:
   allow_implicit_invocation: true
